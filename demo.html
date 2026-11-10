@@ -91,6 +91,62 @@
         '• 가상 실종 조건: ' + scenario;
     }
   </script>
+<!-- 3단계: 수색 지도 및 최종 리포트 영역 -->
+  <div id="step3-container" style="display: none; margin-top: 40px; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: left;">
+    <h2 style="color: #2c3e50; border-bottom: 2px solid #0284c7; padding-bottom: 10px;">
+      🗺️ 3단계: 실시간 수색 지도 & 동선 시각화
+    </h2>
+    <p style="color: #666;">이상치가 필터링된 신뢰성 높은 제보 핀들만 지도상에 시각화됩니다.</p>
 
+    <!-- 가상 수색 지도 박스 -->
+    <div style="position: relative; width: 100%; height: 280px; background: #e5e7eb; border-radius: 12px; border: 2px dashed #9ca3af; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: 20px;">
+      <div style="position: absolute; color: #9ca3af; font-weight: bold; font-size: 1.2rem;">[ GPS 수색 지도 시뮬레이터 ]</div>
+      
+      <!-- 실종 발생 지점 핀 -->
+      <div style="position: absolute; left: 20%; top: 50%; transform: translate(-50%, -50%); text-align: center;">
+        <span style="font-size: 2rem;">🚨</span>
+        <div style="background: #ef4444; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">실종 위치 (0km)</div>
+      </div>
+
+      <!-- 제보 A 정상 핀 (점선 연결) -->
+      <div id="map-pin-a" style="display: none; position: absolute; left: 55%; top: 40%; transform: translate(-50%, -50%); text-align: center;">
+        <span style="font-size: 2rem;">📍</span>
+        <div style="background: #10b981; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">제보 A (1.2km 승인)</div>
+      </div>
+      
+      <!-- 연결 동선 (가상 선) -->
+      <div id="map-line" style="display: none; position: absolute; left: 20%; top: 50%; width: 35%; height: 2px; border-top: 3px dashed #10b981; transform-origin: left center; transform: rotate(-10deg);"></div>
+    </div>
+
+    <!-- 최종 요약 리포트 -->
+    <div id="final-summary-box" style="display: none; margin-top: 20px; padding: 15px; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; color: #065f46;">
+      <b>🎉 AI 검증 시뮬레이션 성공:</b> 허위 및 이상치 제보를 제외한 유효 제보 1건이 수색 지도의 예측 동선에 성공적으로 추가되었습니다!
+    </div>
+  </div>
+
+  <script>
+    // 기존 runAIVerification 함수 마지막 부분에 3단계 연동 코드 추가
+    const originalRunAIVerification = runAIVerification;
+    runAIVerification = function(type) {
+      originalRunAIVerification(type);
+
+      const step3 = document.getElementById('step3-container');
+      const pinA = document.getElementById('map-pin-a');
+      const line = document.getElementById('map-line');
+      const summary = document.getElementById('final-summary-box');
+
+      step3.style.display = 'block';
+
+      if (type === 'real') {
+        pinA.style.display = 'block';
+        line.style.display = 'block';
+        summary.style.display = 'block';
+      } else {
+        pinA.style.display = 'none';
+        line.style.display = 'none';
+        summary.style.display = 'none';
+      }
+    };
+  </script>
 </body>
 </html>
