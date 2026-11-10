@@ -36,7 +36,7 @@
     <!-- 호두 (진돗개) -->
     <div class="avatar-card" onclick="selectAvatar('호두', '진돗개 / 남아', '황색 털, 오른쪽 귀 작은 점', '2시간 전 (강남역)')">
       <div class="badge">난이도: 쉬움</div>
-      <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400" class="avatar-img" alt="호두">
+      <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=500&auto=format&fit=crop" class="avatar-img" alt="호두">
       <div class="avatar-name">호두 🐶</div>
       <div class="avatar-info">
         • <b>품종/성별:</b> 진돗개 / 남아<br>
@@ -45,10 +45,10 @@
       </div>
     </div>
 
-    <!-- 초코 (갈색 푸들) -->
-    <div class="avatar-card" onclick="selectAvatar('초코', '푸들 / 여아', '갈색 곱슬머리, 빨간 스카프', '4시간 전 (여의도 한강공원)')">
+    <!-- 초코 (갈색 토이푸들) -->
+    <div class="avatar-card" onclick="selectAvatar('초코', '토이푸들 / 여아', '갈색 곱슬머리, 빨간 스카프', '4시간 전 (여의도 한강공원)')">
       <div class="badge">난이도: 보통</div>
-      <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400" class="avatar-img" alt="초코">
+      <img src="https://images.unsplash.com/photo-1591768575198-88dac53fbd0a?w=500&auto=format&fit=crop" class="avatar-img" alt="초코">
       <div class="avatar-name">초코 🐕</div>
       <div class="avatar-info">
         • <b>품종/성별:</b> 토이푸들 / 여아<br>
@@ -60,7 +60,7 @@
     <!-- 코코 (오드아이 허스키) -->
     <div class="avatar-card" onclick="selectAvatar('코코', '허스키 / 남아', '회색/흰색 털, 오드아이', '1시간 전 (북한산 둘레길)')">
       <div class="badge">난이도: 심화</div>
-      <img src="https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=400" class="avatar-img" alt="코코">
+      <img src="https://images.unsplash.com/photo-1563889958749-625da2605f62?w=500&auto=format&fit=crop" class="avatar-img" alt="코코">
       <div class="avatar-name">코코 🐩</div>
       <div class="avatar-info">
         • <b>품종/성별:</b> 시베리안 허스키 / 남아<br>
@@ -95,7 +95,6 @@
       </button>
     </div>
 
-    <!-- AI 판별 결과 리포트 박스 -->
     <div id="ai-result-box" style="display: none; padding: 20px; background: #f8f9fa; border-radius: 10px; border-left: 5px solid #0284c7; margin-top:20px;">
       <h3 id="result-title" style="margin-top: 0;"></h3>
       <ul style="line-height: 1.8; color: #333;">
@@ -117,13 +116,11 @@
     <div style="position: relative; width: 100%; height: 250px; background: #e5e7eb; border-radius: 12px; border: 2px dashed #9ca3af; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: 20px;">
       <div style="position: absolute; color: #9ca3af; font-weight: bold; font-size: 1.2rem;">[ GPS 수색 지도 시뮬레이터 ]</div>
       
-      <!-- 실종 위치 핀 -->
       <div style="position: absolute; left: 20%; top: 50%; transform: translate(-50%, -50%); text-align: center;">
         <span style="font-size: 2rem;">🚨</span>
         <div style="background: #ef4444; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">실종 위치 (0km)</div>
       </div>
 
-      <!-- 제보 핀 및 동선 -->
       <div id="map-pin-a" style="display: none; position: absolute; left: 65%; top: 40%; transform: translate(-50%, -50%); text-align: center;">
         <span style="font-size: 2rem;">📍</span>
         <div style="background: #10b981; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">제보 A (1.2km 승인)</div>
